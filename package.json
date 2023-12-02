@@ -1,0 +1,39 @@
+{
+	"name": "advent-of-code",
+	"version": "0.1.0",
+	"private": true,
+	"description": "Solutions for Advent of Code problems, in JavaScript",
+	"keywords": [
+    "aoc",
+		"javascript",
+    "advent-of-code",
+		"adventofcode",
+		"solvers"
+	],
+	"homepage": "https://github.com/iamnapo/advent-of-code#readme",
+	"bugs": {
+		"url": "https://github.com/iamnapo/advent-of-code/issues"
+	},
+	"repository": "github:iamnapo/advent-of-code",
+	"license": "MIT",
+	"author": {
+		"name": "Napoleon-Christos Oikonomou",
+		"email": "napoleonoikon@gmail.com",
+		"url": "https://iamnapo.me"
+	},
+	"type": "module",
+	"scripts": {
+		"lint": "eslint . --ext .js --cache",
+		"test": "npm run lint && node --test test/**/*.test.js"
+	},
+	"eslintConfig": {
+		"extends": "iamnapo"
+	},
+	"devDependencies": {
+		"eslint": "^8.55.0",
+		"eslint-config-iamnapo": "^33.0.0"
+	},
+	"engines": {
+		"node": ">=20"
+	}
+}
