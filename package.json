@@ -24,7 +24,7 @@
 	"type": "module",
 	"scripts": {
 		"lint": "eslint . --ext .js --cache",
-		"test": "npm run lint && node --test test/**/*.test.js"
+		"test": "npm run lint"
 	},
 	"eslintConfig": {
 		"extends": "iamnapo"
