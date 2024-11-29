@@ -8,7 +8,11 @@ const hands = info.map((line) => line.split(" "));
 
 const cards = "AKQJT98765432";
 const getHandRank = (hand) => {
-	const countPerCard = [...hand].reduce((acc, card) => ({ ...acc, [card]: (acc[card] || 0) + 1 }), {});
+	const countPerCard = {};
+	for (const card of hand) {
+		countPerCard[card] = (countPerCard[card] || 0) + 1;
+	}
+
 	const [high, secondHigh] = Object.entries(countPerCard)
 		.sort((a, b) => b[1] - a[1] || cards.indexOf(a[0]) - cards.indexOf(b[0]));
 	return {

@@ -30,4 +30,9 @@ for (const nodeEndingA of nodesEndingA) {
 const gcd = (a, b) => (b ? gcd(b, a % b) : a);
 const lcm = (a, b) => (a * b) / gcd(a, b);
 
-console.log(`Day 8 - Part 2 solution is: ${stepCounts.reduce(lcm)}`);
+let result = 1;
+for (const stepCount of stepCounts) {
+	result = lcm(result, stepCount);
+}
+
+console.log(`Day 8 - Part 2 solution is: ${result}`);

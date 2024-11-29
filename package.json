@@ -23,17 +23,14 @@
 	},
 	"type": "module",
 	"scripts": {
-		"lint": "eslint . --ext .js --cache",
+		"lint": "eslint . --cache",
 		"test": "npm run lint"
 	},
-	"eslintConfig": {
-		"extends": "iamnapo"
-	},
 	"devDependencies": {
-		"eslint": "^8.55.0",
-		"eslint-config-iamnapo": "^33.0.0"
+		"eslint": "^8.57.1",
+		"eslint-config-iamnapo": "^37.0.0"
 	},
 	"engines": {
-		"node": ">=20"
+		"node": ">=22"
 	}
 }
