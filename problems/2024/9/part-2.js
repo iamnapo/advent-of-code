@@ -22,7 +22,6 @@ for (let fileID = currentFileID - 1; fileID >= 0; fileID--) {
 	const fileStart = disk.indexOf(fileID);
 	const fileEnd = disk.lastIndexOf(fileID);
 	if (fileStart !== -1 && fileEnd !== -1) {
-
 		const fileLength = fileEnd - fileStart + 1;
 
 		let bestSpanStart = -1;

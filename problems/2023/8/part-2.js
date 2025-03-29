@@ -19,7 +19,7 @@ for (const nodeEndingA of nodesEndingA) {
 	let stepCount = 0;
 	while (!currentNode.name.endsWith("Z")) {
 		const direction = navigationInstructions[stepCount % (navigationInstructions.length)];
-		currentNode = nodes.find((n) => n.name === currentNode[direction]); // eslint-disable-line no-loop-func
+		currentNode = nodes.find((n) => n.name === currentNode[direction]);
 
 		stepCount += 1;
 	}
