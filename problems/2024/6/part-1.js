@@ -34,8 +34,7 @@ for (let x = 0; x < grid.length; x++) {
 	}
 }
 
-const visited = new Set();
-visited.add(guardPos.join(","));
+const visited = new Set([guardPos.join(",")]);
 
 for (;;) {
 	const [dx, dy] = directions[facing];

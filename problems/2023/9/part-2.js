@@ -6,7 +6,7 @@ const lines = createInterface({ input: createReadStream(new URL("input.txt", imp
 
 const histories = [];
 for await (const line of lines) {
-	histories.push(line.split(" ").map(Number).reverse());
+	histories.push(line.split(" ").map(Number).toReversed());
 }
 
 const predictedValues = [];

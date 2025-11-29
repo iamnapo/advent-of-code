@@ -14,13 +14,14 @@ const getHandRank = (hand) => {
 		countPerCard[card] = (countPerCard[card] || 0) + 1;
 	}
 
-	const [high, secondHigh] = Object.entries(countPerCard)
-		.sort((a, b) => b[1] - a[1] || cards.indexOf(a[0]) - cards.indexOf(b[0]));
+	const [high, secondHigh] = Object.entries(countPerCard).toSorted(
+		(a, b) => b[1] - a[1] || cards.indexOf(a[0]) - cards.indexOf(b[0]),
+	);
 	return {
 		5: 7,
 		4: 6,
-		3: (secondHigh?.[1] === 2) ? 5 : 4,
-		2: (secondHigh?.[1] === 2) ? 3 : 2,
+		3: secondHigh?.[1] === 2 ? 5 : 4,
+		2: secondHigh?.[1] === 2 ? 3 : 2,
 		1: 1,
 	}[high[1]];
 };
@@ -37,11 +38,19 @@ const getHandRankForAnyJoker = (hand) => {
 		}
 
 		case 2: {
-			return Math.max(...[...cardsWithoutJ].flatMap((card1) => [...cardsWithoutJ].map((card2) => getHandRank(hand.replace("J", card1).replace("J", card2)))));
+			return Math.max(
+				...[...cardsWithoutJ].flatMap((card1) =>
+					[...cardsWithoutJ].map((card2) => getHandRank(hand.replace("J", card1).replace("J", card2)))),
+			);
 		}
 
 		case 3: {
-			return Math.max(...[...cardsWithoutJ].flatMap((card1) => [...cardsWithoutJ].flatMap((card2) => [...cardsWithoutJ].map((card3) => getHandRank(hand.replace("J", card1).replace("J", card2).replace("J", card3))))));
+			return Math.max(
+				...[...cardsWithoutJ].flatMap((card1) =>
+					[...cardsWithoutJ].flatMap((card2) =>
+						[...cardsWithoutJ].map((card3) =>
+							getHandRank(hand.replace("J", card1).replace("J", card2).replace("J", card3))))),
+			);
 		}
 
 		default: {
@@ -63,4 +72,4 @@ hands.sort(([handA], [handB]) => {
 	return 0;
 });
 
-console.log(`Day 7 - Part 2 solution is: ${hands.reduce((acc, cur, i) => acc + (Number(cur[1]) * (i + 1)), 0)}`);
+console.log(`Day 7 - Part 2 solution is: ${hands.reduce((acc, cur, i) => acc + Number(cur[1]) * (i + 1), 0)}`);
