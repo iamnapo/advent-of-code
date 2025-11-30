@@ -11,17 +11,11 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v6
 
-      - name: 📦 Setup pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: ⎔ Setup node
-        uses: actions/setup-node@v6
-        with:
-          node-version: 25
-          cache: pnpm
+      - name: 📦 Setup bun
+        uses: oven-sh/setup-bun@v2
 
       - name: 📥 Download deps
-        run: pnpm i
+        run: bun ci
 
       - name: 🧪 Run test script
-        run: pnpm test
+        run: bun run test
