@@ -1,0 +1,6 @@
+{
+	"extends": "@iamnapo/tsconfig",
+	"compilerOptions": {
+		"noEmit": true
+	}
+}

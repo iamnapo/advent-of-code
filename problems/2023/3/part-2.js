@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/no-useless-spread */
 import { createReadStream } from "node:fs";
 import { createInterface } from "node:readline";
 import { URL } from "node:url";
@@ -41,7 +40,7 @@ for (const [i, row] of schematic.entries()) {
 
 			const leftOffset = Math.abs(Math.max(rowI - num.length - 1, 0));
 
-			for (const [i2, c] of [...(schematic[i - 1] || "").slice(leftOffset, rowI + 1)].entries()) {
+			for (const [i2, c] of (schematic[i - 1] || []).slice(leftOffset, rowI + 1).entries()) {
 				if (symbols.has(c) && c === "*") {
 					const id = `${i - 1}/${i2 + leftOffset}`;
 					symbolIdRatio[id] ||= [];
@@ -49,7 +48,7 @@ for (const [i, row] of schematic.entries()) {
 				}
 			}
 
-			for (const [i2, c] of [...(schematic[i + 1] || "").slice(leftOffset, rowI + 1)].entries()) {
+			for (const [i2, c] of (schematic[i + 1] || []).slice(leftOffset, rowI + 1).entries()) {
 				if (symbols.has(c) && c === "*") {
 					const id = `${i + 1}/${i2 + leftOffset}`;
 					symbolIdRatio[id] ||= [];

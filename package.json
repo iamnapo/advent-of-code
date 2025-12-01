@@ -24,13 +24,15 @@
 	"type": "module",
 	"scripts": {
 		"lint": "eslint --cache",
-		"test": "bun lint"
+		"test": "bun lint && tsc"
 	},
 	"prettier": "@iamnapo/prettier-config",
 	"devDependencies": {
 		"@iamnapo/prettier-config": "^3.0.0",
+		"@iamnapo/tsconfig": "^8.1.0",
 		"eslint": "^9.39.1",
-		"eslint-config-iamnapo": "^42.0.0"
+		"eslint-config-iamnapo": "^43.0.0",
+		"typescript": "^5.9.3"
 	},
 	"packageManager": "bun@1.3.3",
 	"engines": {
